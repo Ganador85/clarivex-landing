@@ -129,8 +129,21 @@ html {
 /* ── Clarivex 2026 design system ───────────────────────────────── */
 
 /* Page base: deep navy with a single soft accent glow at the top */
+/* Fonas piesiamas fiksuotame ekrano dydzio sluoksnyje, o ne per visa
+   puslapi. Anksciau trys radialiniai gradientai gulejo ant ~10 000 px
+   aukscio elemento — WebKit (iPhone) toki pavirsiu perpiesdavo slenkant ir
+   nesuspedavo. */
 .cvx-page {
+  position: relative;
   background-color: #05060d;
+}
+
+.cvx-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image:
     radial-gradient(58rem 40rem at 12% -6rem, rgba(79, 141, 253, 0.16), transparent 62%),
     radial-gradient(52rem 38rem at 88% 4rem, rgba(139, 108, 255, 0.13), transparent 62%),
@@ -370,8 +383,12 @@ html {
   position: absolute;
   pointer-events: none;
   border-radius: 9999px;
-  filter: blur(70px);
   opacity: 0.5;
+
+  /* Telefone jokio filter: blur — radial-gradient ir taip minkstas, o blur
+     WebKit'e verciai kompozitoriu apdoroti simtus tukstanciu pikseliu kas
+     kadra. Suliejimas grazinamas tik ten, kur uztenka jegu. */
+  filter: none;
   animation: none !important;
   transform: none !important;
   will-change: auto;
@@ -409,5 +426,12 @@ html {
   .cvx-js .cvx-reveal[data-shown='false'] {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Tinklelio raštas su kauke – tik didesniuose ekranuose */
+@media (max-width: 767px) {
+  .cvx-grid-bg {
+    display: none;
   }
 }

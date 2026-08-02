@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { useInViewRef } from './useReveal'
+import { isNarrowScreen, useInViewRef } from './useReveal'
 
 /* Scenarijai – tik pavyzdžiai. Turinys keičiamas nekeičiant logikos. */
 const scenarios = [
@@ -162,6 +162,10 @@ export default function ChatDemo({ onStateChange }) {
     [],
   )
 
+  /* Telefone raides nerasomos po viena: WebKit'e tai desimtys perpiesimu per
+     sekunde greta viso kito. Komanda parodoma iskart, o scenarijai keiciasi. */
+  const narrow = useMemo(() => isNarrowScreen(), [])
+
   /* Demo sukasi tik tada, kai ji matoma. Telefone nuolatinis perpiesimas
      fone atimdavo pagrindine gija ir puslapis nespedavo reaguoti i palietimus. */
   const [rootRef, visible] = useInViewRef({ once: false, margin: '0px' })
@@ -192,6 +196,12 @@ export default function ChatDemo({ onStateChange }) {
     if (!visible) return undefined
 
     if (phase === PHASE.TYPING) {
+      if (narrow) {
+        setTyped(scenario.user)
+        later(() => setPhase(PHASE.THINKING), 900)
+        return undefined
+      }
+
       setTyped('')
       let i = 0
       const id = setInterval(() => {
@@ -227,7 +237,7 @@ export default function ChatDemo({ onStateChange }) {
       timers.current = []
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, index, reduceMotion, visible])
+  }, [phase, index, reduceMotion, visible, narrow])
 
   const showUserBubble = phase !== PHASE.TYPING
   const inputText = phase === PHASE.TYPING ? typed : ''

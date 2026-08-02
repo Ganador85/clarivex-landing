@@ -7,9 +7,29 @@ import { useEffect, useRef, useState } from 'react';
  * dėl bundle svorio), todėl pagrindinio puslapio judesys daromas CSS'u, o
  * matomumas sekamas IntersectionObserver'iu — nulis papildomų kilobaitų.
  *
- * `once: true` – suveikia vieną kartą (turinio pasirodymas).
- * `margin` – kaip ir framer-motion: susiaurina stebimą langą.
+ * Visi elementai su vienodais parametrais dalijasi VIENU stebėtoju: puslapyje
+ * jų per penkiasdešimt, o kiekvienas atskiras IntersectionObserver telefone
+ * kainuoja ir atmintį, ir darbą pirmosiomis sekundėmis po užsikrovimo.
  */
+
+const observers = new Map();
+const callbacks = new WeakMap();
+
+function getObserver(key, options) {
+  let observer = observers.get(key);
+  if (observer) return observer;
+
+  observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      const handle = callbacks.get(entry.target);
+      if (handle) handle(entry.isIntersecting, observer, entry.target);
+    }
+  }, options);
+
+  observers.set(key, observer);
+  return observer;
+}
+
 export function useInViewRef({ once = true, margin = '0px 0px -12% 0px', threshold = 0 } = {}) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
@@ -23,20 +43,27 @@ export function useInViewRef({ once = true, margin = '0px 0px -12% 0px', thresho
       return undefined;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          if (once) observer.disconnect();
-        } else if (!once) {
-          setInView(false);
+    const key = `${margin}|${threshold}`;
+    const observer = getObserver(key, { rootMargin: margin, threshold });
+
+    callbacks.set(node, (isIntersecting, obs, target) => {
+      if (isIntersecting) {
+        setInView(true);
+        if (once) {
+          obs.unobserve(target);
+          callbacks.delete(target);
         }
-      },
-      { rootMargin: margin, threshold },
-    );
+      } else if (!once) {
+        setInView(false);
+      }
+    });
 
     observer.observe(node);
-    return () => observer.disconnect();
+
+    return () => {
+      observer.unobserve(node);
+      callbacks.delete(node);
+    };
   }, [once, margin, threshold]);
 
   return [ref, inView];
@@ -46,4 +73,10 @@ export function useInViewRef({ once = true, margin = '0px 0px -12% 0px', thresho
 export function prefersReducedMotion() {
   if (typeof window === 'undefined' || !window.matchMedia) return false;
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+/** Siauras ekranas — telefone taupom perpiešimus. */
+export function isNarrowScreen() {
+  if (typeof window === 'undefined' || !window.matchMedia) return false;
+  return window.matchMedia('(max-width: 767px)').matches;
 }

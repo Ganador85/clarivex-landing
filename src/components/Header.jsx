@@ -146,7 +146,7 @@ const Header = () => {
                     className="fixed inset-0 z-40 cursor-default bg-transparent"
                     onClick={() => setIsMoreOpen(false)}
                   />
-                  <div className="absolute right-0 top-full z-50 mt-1 min-w-[13rem] rounded-xl border border-gray-800 bg-gray-950/98 py-1 shadow-xl shadow-black/40 backdrop-blur-xl">
+                  <div className="absolute right-0 top-full z-50 mt-1 min-w-[13rem] rounded-xl border border-gray-800 bg-[#080b14] py-1 shadow-xl shadow-black/60">
                     {moreNavLinks.map((link) =>
                       link.href ? (
                         <Link
@@ -213,7 +213,7 @@ const Header = () => {
             transition={{ duration: 0.2 }}
             className="fixed inset-x-0 top-16 z-40 lg:hidden"
           >
-            <div className="bg-gray-950/98 backdrop-blur-xl border-b border-gray-800 shadow-xl">
+            <div className="bg-[#080b14] border-b border-gray-800 shadow-xl">
               <nav className="container mx-auto max-w-7xl px-4 py-4 flex flex-col gap-1" aria-label="Pagrindinė navigacija">
                 {navLinks.map((link, index) => (
                   link.href ? (

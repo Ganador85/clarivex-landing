@@ -25,7 +25,7 @@ export default function PricingCredits() {
     <section id="kainos" className="relative overflow-hidden bg-space-950 py-20 sm:py-28">
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 rounded-full opacity-20 blur-[150px]"
+        className="cvx-glow bottom-0 left-1/2 -z-10 hidden h-[500px] w-[800px] -translate-x-1/2 opacity-20 md:block"
         style={{ background: 'radial-gradient(circle, #8b6cff 0%, transparent 70%)' }}
       />
 

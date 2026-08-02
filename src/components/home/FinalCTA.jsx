@@ -6,7 +6,7 @@ export default function FinalCTA() {
     <section id="pradeti" className="relative overflow-hidden bg-space-950 pb-24 pt-10 sm:pb-32">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[520px] w-[900px] -translate-x-1/2 rounded-full opacity-30 blur-[150px] animate-aurora-slow"
+        className="cvx-glow left-1/2 top-0 -z-10 h-[300px] w-[420px] -translate-x-1/2 opacity-30 md:h-[520px] md:w-[900px] md:animate-aurora-slow"
         style={{
           background:
             'radial-gradient(circle, rgba(79,141,253,0.55) 0%, rgba(139,108,255,0.28) 45%, transparent 72%)',

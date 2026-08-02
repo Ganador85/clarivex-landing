@@ -358,3 +358,32 @@ html {
     transform: none;
   }
 }
+
+/* ── Dekoratyvinis svytejimas ─────────────────────────────────────
+   Dideli blur(150px) sluoksniai telefone kainuoja per daug: GPU
+   perpiesia kelis 700px pavirsius kas kadra, todel puslapis kimba ir
+   nespeja reaguoti i palietimus. Telefone rodom pigu statini gradienta,
+   animacija ir stiprus blur – tik nuo planseto. */
+.cvx-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.5;
+  animation: none !important;
+  transform: none !important;
+  will-change: auto;
+}
+
+@media (min-width: 768px) {
+  .cvx-glow {
+    filter: blur(150px);
+  }
+}
+
+/* Sunkus permatomumo suliejimas – tik didesniuose ekranuose */
+@media (max-width: 767px) {
+  .cvx-blur-panel {
+    backdrop-filter: none !important;
+  }
+}

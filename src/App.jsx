@@ -180,15 +180,19 @@ function LandingPage() {
         <Header />
         <main>
           <HeroLive />
+          {/* Naujos sekcijos be bendro content-visibility: viename bloke jis
+              rezervuodavo 1000 px vietoj realiu ~8000 px ir slinktis sokinedavo. */}
+          <Capabilities />
+          <WarehouseScene />
+          <HowItWorksSteps />
+          <Modules />
+          <PricingCredits />
           <div className="cvx-content-visibility">
-            <Capabilities />
-            <WarehouseScene />
-            <HowItWorksSteps />
-            <Modules />
-            <PricingCredits />
             <PapildymoSection />
             <ReferralSection />
-            <FinalCTA />
+          </div>
+          <FinalCTA />
+          <div className="cvx-content-visibility">
             <QuickLinks />
             <SeoContent />
           </div>

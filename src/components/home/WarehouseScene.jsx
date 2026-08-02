@@ -238,7 +238,7 @@ export default function WarehouseScene({ showIntro = true }) {
       {/* Aurora rėminama atskirai: overflow-hidden ant sekcijos sulaužytų lipnią juostą. */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div
-          className="absolute left-1/2 top-1/4 h-[600px] w-[900px] -translate-x-1/2 rounded-full opacity-25 blur-[160px]"
+          className="cvx-glow left-1/2 top-1/4 hidden h-[600px] w-[900px] -translate-x-1/2 opacity-25 md:block"
           style={{ background: 'radial-gradient(circle, #4f8dfd 0%, transparent 70%)' }}
         />
       </div>

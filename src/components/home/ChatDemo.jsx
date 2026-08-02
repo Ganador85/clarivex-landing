@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useInViewRef } from './useReveal'
 
 /* Scenarijai – tik pavyzdžiai. Turinys keičiamas nekeičiant logikos. */
 const scenarios = [
@@ -161,6 +162,10 @@ export default function ChatDemo({ onStateChange }) {
     [],
   )
 
+  /* Demo sukasi tik tada, kai ji matoma. Telefone nuolatinis perpiesimas
+     fone atimdavo pagrindine gija ir puslapis nespedavo reaguoti i palietimus. */
+  const [rootRef, visible] = useInViewRef({ once: false, margin: '0px' })
+
   const [index, setIndex] = useState(0)
   const [phase, setPhase] = useState(reduceMotion ? PHASE.ANSWER : PHASE.TYPING)
   const [typed, setTyped] = useState(reduceMotion ? scenarios[0].user : '')
@@ -184,6 +189,8 @@ export default function ChatDemo({ onStateChange }) {
     timers.current.forEach(clearTimeout)
     timers.current = []
 
+    if (!visible) return undefined
+
     if (phase === PHASE.TYPING) {
       setTyped('')
       let i = 0
@@ -194,7 +201,7 @@ export default function ChatDemo({ onStateChange }) {
           clearInterval(id)
           later(() => setPhase(PHASE.THINKING), 520)
         }
-      }, 34)
+      }, 45)
       timers.current.push(id)
       return () => clearInterval(id)
     }
@@ -220,17 +227,17 @@ export default function ChatDemo({ onStateChange }) {
       timers.current = []
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, index, reduceMotion])
+  }, [phase, index, reduceMotion, visible])
 
   const showUserBubble = phase !== PHASE.TYPING
   const inputText = phase === PHASE.TYPING ? typed : ''
 
   return (
-    <div className="relative w-full max-w-[560px]">
+    <div ref={rootRef} className="relative w-full max-w-[560px]">
       {/* švytėjimas po langu – šviesa sklinda iš produkto */}
       <div
         aria-hidden
-        className={`pointer-events-none absolute -inset-x-10 -bottom-10 -top-6 -z-10 rounded-[48px] blur-3xl transition-opacity duration-1000 ${
+        className={`pointer-events-none absolute -inset-x-10 -bottom-10 -top-6 -z-10 hidden rounded-[48px] blur-3xl transition-opacity duration-1000 md:block ${
           phase === PHASE.THINKING ? 'opacity-100' : 'opacity-60'
         }`}
         style={{
@@ -239,7 +246,7 @@ export default function ChatDemo({ onStateChange }) {
         }}
       />
 
-      <div className="overflow-hidden rounded-[22px] border border-white/[0.09] bg-app-surface/95 shadow-[0_30px_90px_-24px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+      <div className="overflow-hidden rounded-[22px] border border-white/[0.09] bg-app-surface/95 shadow-[0_30px_90px_-24px_rgba(0,0,0,0.9)] cvx-blur-panel backdrop-blur-xl">
         {/* lango antraštė */}
         <div className="flex items-center gap-2.5 border-b border-white/[0.06] px-4 py-3">
           <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-aurora-blue to-aurora-violet text-[11px] font-bold text-white">

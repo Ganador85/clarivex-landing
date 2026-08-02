@@ -24,17 +24,17 @@ export default function HeroLive() {
       {/* aurora – lėtai kvėpuojanti šviesa */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-20">
         <div
-          className={`absolute -top-[28%] left-[8%] h-[720px] w-[720px] rounded-full blur-[150px] animate-aurora-slow transition-opacity duration-1000 ${
-            working ? 'opacity-70' : 'opacity-50'
+          className={`cvx-glow -top-[28%] left-[8%] h-[520px] w-[520px] md:h-[720px] md:w-[720px] md:animate-aurora-slow transition-opacity duration-1000 ${
+            working ? 'md:opacity-70' : 'md:opacity-50'
           }`}
           style={{ background: 'radial-gradient(circle, #4f8dfd 0%, transparent 68%)' }}
         />
         <div
-          className="absolute -right-[15%] top-[6%] h-[640px] w-[640px] rounded-full opacity-40 blur-[150px] animate-aurora-slower"
+          className="cvx-glow -right-[15%] top-[6%] h-[460px] w-[460px] opacity-40 md:h-[640px] md:w-[640px] md:animate-aurora-slower"
           style={{ background: 'radial-gradient(circle, #8b6cff 0%, transparent 68%)' }}
         />
         <div
-          className="absolute bottom-[-30%] left-1/3 h-[560px] w-[560px] rounded-full opacity-25 blur-[150px] animate-aurora-slow"
+          className="cvx-glow bottom-[-30%] left-1/3 hidden h-[560px] w-[560px] opacity-25 md:block md:animate-aurora-slow"
           style={{ background: 'radial-gradient(circle, #3fd8c2 0%, transparent 70%)' }}
         />
       </div>

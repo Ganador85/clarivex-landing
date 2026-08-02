@@ -60,6 +60,28 @@ module.exports = {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
 				},
+				/* Gili erdve - naujo pagrindinio puslapio fonas */
+				space: {
+					950: '#05060d',
+					900: '#0a0c16',
+					800: '#111524',
+				},
+				/* Tikros app spalvos (dark tema) - kad demo atrodytu kaip Clarivex */
+				app: {
+					surface: '#171c26',
+					elevated: '#1e2430',
+					border: '#2b3342',
+					text: '#ececec',
+					muted: '#8b94a5',
+					user: '#2f5578',
+					primary: '#60a5fa',
+				},
+				/* Aurora akcentai - svelnus, ne neonas */
+				aurora: {
+					blue: '#4f8dfd',
+					violet: '#8b6cff',
+					teal: '#3fd8c2',
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -75,10 +97,27 @@ module.exports = {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: 0 },
 				},
+				auroraDrift: {
+					'0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+					'33%': { transform: 'translate3d(4%, -3%, 0) scale(1.08)' },
+					'66%': { transform: 'translate3d(-3%, 3%, 0) scale(0.96)' },
+				},
+				pulseSoft: {
+					'0%, 100%': { opacity: 0.45 },
+					'50%': { opacity: 0.8 },
+				},
+				dotBounce: {
+					'0%, 60%, 100%': { transform: 'translateY(0)', opacity: 0.35 },
+					'30%': { transform: 'translateY(-4px)', opacity: 1 },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+				'aurora-slow': 'auroraDrift 22s ease-in-out infinite',
+				'aurora-slower': 'auroraDrift 32s ease-in-out infinite reverse',
+				'pulse-soft': 'pulseSoft 3.5s ease-in-out infinite',
+				'dot-bounce': 'dotBounce 1.3s ease-in-out infinite',
 			},
 		},
 	},

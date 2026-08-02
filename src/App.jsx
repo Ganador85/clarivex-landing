@@ -3,10 +3,13 @@ import { useRoutes } from 'react-router-dom';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import StatsSection from '@/components/StatsSection';
-import CTA from '@/components/CTA';
+import HeroLive from '@/components/home/HeroLive';
+import Capabilities from '@/components/home/Capabilities';
+import WarehouseScene from '@/components/home/WarehouseScene';
+import HowItWorksSteps from '@/components/home/HowItWorksSteps';
+import Modules from '@/components/home/Modules';
+import PricingCredits from '@/components/home/PricingCredits';
+import FinalCTA from '@/components/home/FinalCTA';
 import PapildymoSection from '@/components/PapildymoSection';
 import ReferralSection from '@/components/ReferralSection';
 import SeoContent from '@/components/SeoContent';
@@ -33,8 +36,8 @@ function lazyPage(loader) {
 }
 
 const pageModules = isServer
-  ? import.meta.glob('./components/{PrivacyPolicy,TermsOfService,DataDeletion,FAQ,Status,PricingPage,FeaturesPage,HowItWorksPage,BenefitsPage,TelegramPage,AtsakiklisPage,SvetainiuKurejasPage,ResourcesHubPage,SeoResourcePage,BlogIndexPage,BlogPostPage}.jsx', { eager: true })
-  : import.meta.glob('./components/{PrivacyPolicy,TermsOfService,DataDeletion,FAQ,Status,PricingPage,FeaturesPage,HowItWorksPage,BenefitsPage,TelegramPage,AtsakiklisPage,SvetainiuKurejasPage,ResourcesHubPage,SeoResourcePage,BlogIndexPage,BlogPostPage}.jsx');
+  ? import.meta.glob('./components/{PrivacyPolicy,TermsOfService,DataDeletion,FAQ,Status,PricingPage,FeaturesPage,HowItWorksPage,BenefitsPage,TelegramPage,AtsakiklisPage,SvetainiuKurejasPage,CatalogPage,ResourcesHubPage,SeoResourcePage,BlogIndexPage,BlogPostPage}.jsx', { eager: true })
+  : import.meta.glob('./components/{PrivacyPolicy,TermsOfService,DataDeletion,FAQ,Status,PricingPage,FeaturesPage,HowItWorksPage,BenefitsPage,TelegramPage,AtsakiklisPage,SvetainiuKurejasPage,CatalogPage,ResourcesHubPage,SeoResourcePage,BlogIndexPage,BlogPostPage}.jsx');
 
 function createPageComponent(modulePath) {
   const moduleOrLoader = pageModules[modulePath];
@@ -64,6 +67,7 @@ const AtsakiklisPage = createPageComponent('./components/AtsakiklisPage.jsx');
 const SvetainiuKurejasPage = createPageComponent(
   './components/SvetainiuKurejasPage.jsx',
 );
+const CatalogPage = createPageComponent('./components/CatalogPage.jsx');
 const ResourcesHubPage = createPageComponent('./components/ResourcesHubPage.jsx');
 const SeoResourcePage = createPageComponent('./components/SeoResourcePage.jsx');
 const BlogIndexPage = createPageComponent('./components/BlogIndexPage.jsx');
@@ -129,8 +133,9 @@ function LandingPage() {
         "featureList": [
           "AI asistentas lietuvių kalba",
           "Socialinių tinklų turinio kūrimas ir publikavimas",
-          "AI el. paštui ir atsakymams",
-          "Telegram AI botas",
+          "AI el. paštui ir atsakymams klientams",
+          "Prekių katalogas su AI paruošimu ir semantine paieška",
+          "Svetainių kūrėjas su savu domenu",
           "Balso komandos ir priminimai"
         ],
         "publisher": {
@@ -174,14 +179,17 @@ function LandingPage() {
       <div className="cvx-page min-h-screen text-white antialiased">
         <Header />
         <main>
-          <Hero />
+          <HeroLive />
           <div className="cvx-content-visibility">
-            <Features />
-            <StatsSection />
-            <QuickLinks />
+            <Capabilities />
+            <WarehouseScene />
+            <HowItWorksSteps />
+            <Modules />
+            <PricingCredits />
             <PapildymoSection />
             <ReferralSection />
-            <CTA />
+            <FinalCTA />
+            <QuickLinks />
             <SeoContent />
           </div>
         </main>
@@ -206,6 +214,7 @@ export const routeDefinitions = [
   { path: '/telegram', component: TelegramPage },
   { path: '/atsakiklis', component: AtsakiklisPage },
   { path: '/svetainiu-kurejas', component: SvetainiuKurejasPage },
+  { path: '/prekiu-katalogas', component: CatalogPage },
   { path: '/resursai', component: ResourcesHubPage },
   { path: '/blog', component: BlogIndexPage, props: { language: 'lt' } },
   { path: '/en/blog', component: BlogIndexPage, props: { language: 'en' } },

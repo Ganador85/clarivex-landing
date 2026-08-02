@@ -6,10 +6,10 @@ import { Clock, Zap, Shield, TrendingUp, Sparkles, CheckCircle } from 'lucide-re
 const benefits = [
   {
     icon: Clock,
-    title: 'Tau grąžina 10+ val. per savaitę',
-    description: 'Tai 2 pilnos dienos, kurias gali skirti klientams, produktams ar savęs tobulinimui — ne postams ir el. paštui.',
-    stat: '10h+',
-    statLabel: 'tau grąžinama'
+    title: 'Rutina nusiimama nuo tavo pečių',
+    description: 'Postai, atsakymai klientams ir laiškai paruošiami tau nedalyvaujant — lieka tik peržiūrėti ir patvirtinti.',
+    stat: '1 vieta',
+    statLabel: 'vietoj kelių įrankių'
   },
   {
     icon: Zap,
@@ -22,22 +22,22 @@ const benefits = [
     icon: Shield,
     title: 'Tavo balsas visur — automatiškai',
     description: 'Clarivex išmoksta tavo toną, terminus ir prekės ženklą. Kiekvienas atsakymas skamba kaip tau parašytas.',
-    stat: '100%',
-    statLabel: 'tavo stilius'
+    stat: 'Tavo',
+    statLabel: 'tonas ir terminai'
   },
   {
     icon: TrendingUp,
-    title: 'Augink be naujų etatų',
-    description: 'Vienas žmogus — tai, kam anksčiau reikėjo 2–3. Tai tau reiškia mažesnes išlaidas ir greitesnį sprendimų priėmimą.',
-    stat: '5x',
-    statLabel: 'daugiau su tiek pat žmonių'
+    title: 'Dirbi be papildomų etatų',
+    description: 'Darbus, kuriems reikėtų atskiro žmogaus ar agentūros, atlieka asistentas — o tu moki tik už tai, ką realiai panaudoji.',
+    stat: '€0',
+    statLabel: 'mėnesinis mokestis'
   }
 ];
 
 const dayScenario = [
   { time: '08:00', action: 'Pasakai balsu: „Postas apie akciją“', result: '2 platformoms paruošta per 10 s' },
   { time: '12:00', action: 'Atsakai į DM ir el. laiškus', result: 'AI siūlo atsakymus — 1 paspaudimas' },
-  { time: '16:00', action: '„Primink rytoj 10:00 paskambinti“', result: 'Priminimas nustatytas per Telegram' },
+  { time: '16:00', action: '„Primink rytoj 10:00 paskambinti“', result: 'Priminimas nustatytas — pranešimas į telefoną' },
 ];
 
 const useCases = [

@@ -94,17 +94,18 @@ const SeoContent = () => {
               Dirbkite naršyklėje arba telefone.
             </p>
             <ul className="space-y-2 list-disc pl-5">
-              <li>Telegram balso komandos ir priminimai</li>
-              <li>Social media integracijos su Instagram ir Facebook</li>
+              <li>Instagram ir Facebook: postai, žinutės ir komentarai</li>
               <li>El. pašto darbo eiga vienoje vietoje</li>
-              <li>Aiškūs veiksmai nuo užklausos iki publikavimo</li>
+              <li>Prekių katalogas iš Shopify, WooCommerce ar lentelės</li>
+              <li>Svetainė su savu domenu ir gyvu pokalbiu</li>
+              <li>Balso komandos ir priminimai telefone</li>
             </ul>
             <p className="mt-4">
-              Išbandykite{' '}
-              <Link to="/telegram" className="text-blue-400 hover:text-blue-300">
-                Telegram AI botą lietuvių kalba
+              Parduodantiems — {' '}
+              <Link to="/prekiu-katalogas" className="text-blue-400 hover:text-blue-300">
+                prekių katalogas su AI paieška
               </Link>
-              {' (balsas, priminimai). DM ir komentarams — '}
+              {'. DM ir komentarams — '}
               <Link to="/atsakiklis" className="text-blue-400 hover:text-blue-300">
                 AI atsakiklis Messenger ir Instagram
               </Link>

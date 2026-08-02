@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
         <script type="application/ld+json">{JSON.stringify(pageSchema)}</script>
       </Helmet>
       
-      <div className="min-h-screen bg-gray-950 text-white">
+      <div className="cvx-page min-h-screen text-white">
         {/* Header */}
         <header className="border-b border-gray-800 bg-gray-950/80 backdrop-blur-sm sticky top-0 z-50">
           <div className="max-w-4xl mx-auto px-4 py-4">

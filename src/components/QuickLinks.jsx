@@ -11,7 +11,9 @@ const QuickLinks = () => {
           <a href={seoHref('/atsakiklis')} className="text-blue-400 hover:text-blue-300 font-medium">AI atsakiklis Messenger, DM ir komentarams</a>{' '}
           — inbox ir taisyklės;{' '}
           <a href={seoHref('/kaip-veikia')} className="text-blue-400 hover:text-blue-300 font-medium">Kaip veikia Clarivex</a>{' '}
-          paaiškina eigą, o kiti puslapiai parodo funkcijas, naudą ir kainodarą.
+          paaiškina eigą,{' '}
+          <a href={seoHref('/prekiu-katalogas')} className="text-blue-400 hover:text-blue-300 font-medium">Prekių katalogas</a>{' '}
+          — kaip prekės paruošiamos atsakymams ir paieškai, o kiti puslapiai parodo funkcijas, naudą ir kainodarą.
         </p>
         <div className="flex flex-wrap justify-center gap-4 text-sm">
           <a href={seoHref('/features')} className="cvx-surface cvx-surface-hover px-4 py-2 text-slate-300 hover:text-white">
@@ -22,6 +24,12 @@ const QuickLinks = () => {
           </a>
           <a href={seoHref('/nauda')} className="cvx-surface cvx-surface-hover px-4 py-2 text-slate-300 hover:text-white">
             AI sprendimai mažoms įmonėms
+          </a>
+          <a href={seoHref('/prekiu-katalogas')} className="cvx-surface cvx-surface-hover px-4 py-2 text-slate-300 hover:text-white">
+            Prekių katalogas su AI paieška
+          </a>
+          <a href={seoHref('/svetainiu-kurejas')} className="cvx-surface cvx-surface-hover px-4 py-2 text-slate-300 hover:text-white">
+            Svetainė su savu domenu
           </a>
           <a href={seoHref('/telegram')} className="cvx-surface cvx-surface-hover px-4 py-2 text-slate-300 hover:text-white">
             Telegram integracija ir balso komandos

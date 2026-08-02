@@ -43,7 +43,7 @@ const BenefitsPage = () => {
         <meta name="twitter:image" content={socialImage} />
         <script type="application/ld+json">{JSON.stringify(pageSchema)}</script>
       </Helmet>
-      <div className="min-h-screen bg-gray-950 text-white">
+      <div className="cvx-page min-h-screen text-white">
         <Header />
         <main className="pt-20">
           <Benefits />

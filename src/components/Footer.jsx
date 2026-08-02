@@ -81,6 +81,14 @@ const Footer = () => {
             <p className="font-semibold text-white mb-5">Platforma</p>
             <ul className="space-y-3">
               <li>
+                <FooterLink
+                  to="/prekiu-katalogas"
+                  className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
+                >
+                  Prekių katalogas
+                </FooterLink>
+              </li>
+              <li>
                 <FooterLink 
                   to="/blog" 
                   className="text-gray-400 hover:text-blue-400 transition-colors text-sm"

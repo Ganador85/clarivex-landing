@@ -102,7 +102,7 @@ function BlogIndexPage({ language = 'lt' }) {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-gray-950 text-white">
+      <div className="cvx-page min-h-screen text-white">
         <Header />
 
         <main className="pt-24 pb-20">

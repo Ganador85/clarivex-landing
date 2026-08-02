@@ -25,6 +25,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.clarivex.ai/prekiu-katalogas</loc>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.clarivex.ai/telegram</loc>
     <lastmod>2026-03-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -203,6 +209,18 @@
     <lastmod>2026-03-19T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.clarivex.ai/en/blog/ai-political-ads-response-system</loc>
+    <lastmod>2026-07-10T13:37:26.767Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clarivex.ai/blog/ai-politine-reklama-organizacijoms-reikia-ne-detektoriaus-o-atsako-sistemos</loc>
+    <lastmod>2026-07-10T13:37:26.744Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.clarivex.ai/en/blog/new-ai-regulation-consensus-business-public-sector</loc>

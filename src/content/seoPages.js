@@ -15,9 +15,9 @@ export const siteConfig = {
     'https://t.me/clarivex_support_bot',
   ],
   organizationDescription:
-    'Clarivex AI – lietuvių kalbą suprantantis AI asistentas, padedantis automatizuoti el. paštą, socialinių tinklų turinį, priminimus ir kitas kasdienes užduotis su lankščia kreditų sistema.',
+    'Clarivex AI – lietuvių kalbą suprantanti AI platforma verslui: socialiniai tinklai, atsakymai klientams, el. paštas, prekių katalogas su AI paruošimu ir svetainė su savu domenu. Lanksti kreditų sistema be abonemento.',
   softwareApplicationDescription:
-    'Clarivex AI – lietuviškai suprantantis AI asistentas verslui ir individualiems vartotojams. Automatizuoja el. pašto atsakymus, socialinių tinklų įrašus, priminimus ir kitas kasdienes užduotis naudojant lankščią kreditų sistemą be fiksuoto mėnesinio plano.',
+    'Clarivex AI – lietuviškai suprantanti AI platforma verslui. Kuria socialinių tinklų turinį, atsako klientams, tvarko el. paštą, paruošia prekių katalogą atsakymams ir paieškai bei sukuria svetainę su savu domenu. Kreditų sistema be fiksuoto mėnesinio plano.',
 };
 
 /** Tas pats @id visuose puslapiuose – paieškos sistemos sujungia į vieną objektą */
@@ -79,7 +79,7 @@ export const existingPageMetadata = [
     path: '/',
     title: 'Clarivex AI – asistentas verslui ir kreditai',
     description:
-      'Automatizuokite el. paštą, socialinius tinklus ir užduotis lietuviškai. Mokate tik už kreditus, be abonemento. Išbandykite nemokamai.',
+      'AI platforma lietuvių kalba: postai, atsakymai klientams, el. paštas, prekių katalogas ir svetainė. Mokate tik už tai, ką naudojate — be abonemento. 1 000 kreditų startui.',
     priority: '1.0',
     changefreq: 'weekly',
   },
@@ -105,6 +105,14 @@ export const existingPageMetadata = [
     description:
       'Greitesnė komunikacija ir mažiau rutinos: el. paštas, socialiniai tinklai lietuvių kalba vienoje Clarivex sistemoje. Sužinokite naudą smulkioms įmonėms.',
     priority: '0.8',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/prekiu-katalogas',
+    title: 'Prekių katalogas su AI: atsakymai klientams ir paieška',
+    description:
+      'Clarivex importuoja prekes iš Shopify, WooCommerce ar lentelės, aprašo jas AI, apžiūri nuotraukas ir paruošia paieškai. Klientas gauna konkretų atsakymą su kaina ir dydžiu.',
+    priority: '0.9',
     changefreq: 'weekly',
   },
   {

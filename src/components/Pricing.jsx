@@ -33,7 +33,7 @@ const plans = [
 ];
 
 const features = [
-  'Visi AI modeliai (GPT-5.4 mini numatytasis, GPT-5.4/5.5, GPT-5.1/5.2, Nano Banana 2, GPT Image 2)',
+  'Visi AI modeliai (GPT-5.6 šeima tekstui, GPT Image 2 ir Nano Banana 2 vaizdams)',
   'Balso komandos lietuviškai',
   'Instagram + Facebook postai (iki 25/d.)*',
   'El. pašto valdymas su AI',

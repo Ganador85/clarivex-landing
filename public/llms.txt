@@ -4,10 +4,11 @@ Clarivex yra AI asistentų platforma lietuvių kalba, skirta smulkiam verslui, k
 Pagrindinės temos: AI asistentas lietuviškai, socialinių tinklų valdymas, AI el. paštui, Telegram, balso komandos ir workflow automatizavimas.
 
 ## Core Pages
-- [Clarivex AI – asistentas verslui ir kreditai](/): Automatizuokite el. paštą, socialinius tinklus ir užduotis lietuviškai. Mokate tik už kreditus, be abonemento. Išbandykite nemokamai.
+- [Clarivex AI – asistentas verslui ir kreditai](/): AI platforma lietuvių kalba: postai, atsakymai klientams, el. paštas, prekių katalogas ir svetainė. Mokate tik už tai, ką naudojate — be abonemento. 1 000 kreditų startui.
 - [Clarivex AI funkcijos: paštas, social, balsas](/features): Viena platforma: AI paštas, Instagram ir Facebook, balso komandos, Telegram, dokumentai. Sužinokite galimybes ir integracijas.
 - [Kaip veikia Clarivex AI: žingsniai ir kreditai](/kaip-veikia): Nuo užklausos iki rezultato: kreditai, el. paštas, socialiniai tinklai ir Telegram vienoje vietoje. Trumpa veikimo eiga lietuviškai.
 - [Clarivex AI nauda: mažiau rutinos, daugiau laiko](/nauda): Greitesnė komunikacija ir mažiau rutinos: el. paštas, socialiniai tinklai lietuvių kalba vienoje Clarivex sistemoje. Sužinokite naudą smulkioms įmonėms.
+- [Prekių katalogas su AI: atsakymai klientams ir paieška](/prekiu-katalogas): Clarivex importuoja prekes iš Shopify, WooCommerce ar lentelės, aprašo jas AI, apžiūri nuotraukas ir paruošia paieškai. Klientas gauna konkretų atsakymą su kaina ir dydžiu.
 - [Clarivex Telegram botas – balsas ir priminimai](/telegram): Telegram ir Clarivex: balso komandos lietuviškai, užrašai, priminimai ir trumpi tekstai telefone. Greitas būdas valdyti AI, kai esate kelyje ar užimtas darbas.
 - [Clarivex atsakiklis: DM ir Messenger 24/7](/atsakiklis): Nepraraskite klientų dėl vėluojančių atsakymų. Clarivex automatiškai atsako į Messenger, Instagram DM ir komentarus lietuviškai — net kai ilsitės.
 - [Clarivex AI svetainių kūrėjas – svetainė per kelias minutes](/svetainiu-kurejas): Sukurkite profesionalią svetainę su AI: tekstai, nuotraukos, dizainas, galerijos ir redagavimas pokalbiu. Nemokamas talpinimas adresu jūsų-vardas.clarivex.ai.

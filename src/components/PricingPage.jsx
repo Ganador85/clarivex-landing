@@ -35,99 +35,37 @@ import {
 // ============================================================================
 
 const AI_MODELS = [
-  // GPT-5.4 / 5.5 serija
   {
-    name: 'GPT-5.5',
-    inPrice: 12.27,
-    outPrice: 73.59,
-    tier: 'premium',
-    badge: '🚀 Naujausias',
-    description: 'Naujausias flagmanas – sudėtingiausiam profesionaliam darbui',
-  },
-  {
-    name: 'GPT-5.4',
-    inPrice: 6.13,
-    outPrice: 36.8,
-    tier: 'premium',
-    badge: '🏆 Flagmanas',
-    description: 'Agentai, kodas, ilgas kontekstas',
-  },
-  {
-    name: 'GPT-5.4-mini',
-    inPrice: 1.84,
-    outPrice: 11.04,
+    name: 'Kasdienis',
+    msgMin: 1,
+    msgMax: 3,
     tier: 'recommended',
-    badge: '⭐ Rekomenduojamas',
-    description: 'Numatytasis – greitas, stiprus kasdieniam naudojimui',
+    badge: '⭐ Numatytasis',
+    description: 'Pokalbiai, postai, atsakymai klientams, vertimai — greitas ir pigus',
   },
   {
-    name: 'GPT-5.4-nano',
-    inPrice: 0.49,
-    outPrice: 3.07,
-    tier: 'economy',
-    badge: '💰 Pigiausias',
-    description: 'Ekonomiškiausias variantas paprastiems klausimams',
-  },
-  // GPT-5 serija
-  { 
-    name: 'GPT-5.2', 
-    inPrice: 4.29, 
-    outPrice: 34.34, 
+    name: 'Sudėtingiems darbams',
+    msgMin: 11,
+    msgMax: 24,
     tier: 'premium',
-    description: 'Galingiausias modelis sudėtingiausioms užduotims',
+    badge: '📄 Dokumentams',
+    description: 'Ilgi dokumentai, sutarčių analizė, el. laiškai, blogo straipsniai',
   },
-  { 
-    name: 'GPT-5.1', 
-    inPrice: 3.07, 
-    outPrice: 24.53, 
-    tier: 'recommended',
-    description: 'Geras kainos ir kokybės balansas',
+  {
+    name: 'Maksimalios kokybės',
+    msgMin: 28,
+    msgMax: 61,
+    tier: 'premium',
+    badge: '🚀 Stipriausias',
+    description: 'Kai reikia geriausio įmanomo rezultato — pasirenkamas pokalbyje',
   },
-  { 
-    name: 'GPT-5-mini', 
-    inPrice: 0.61, 
-    outPrice: 4.91, 
+  {
+    name: 'Ekonominis',
+    msgMin: 1,
+    msgMax: 3,
     tier: 'economy',
-    badge: '⚡ Greitas',
-    description: 'Greitas ir ekonomiškas paprastoms užduotims',
-  },
-  // GPT-4.1 serija
-  { 
-    name: 'GPT-4.1', 
-    inPrice: 4.91, 
-    outPrice: 19.62, 
-    tier: 'standard',
-    description: 'Patikimas ir stabilus modelis',
-  },
-  { 
-    name: 'GPT-4.1-mini', 
-    inPrice: 0.98, 
-    outPrice: 3.92, 
-    tier: 'economy',
-    description: 'Geras kainos/kokybės balansas',
-  },
-  { 
-    name: 'GPT-4.1-nano', 
-    inPrice: 0.25, 
-    outPrice: 0.98, 
-    tier: 'economy',
-    description: 'Paprastiems uždaviniams',
-  },
-  // Legacy
-  { 
-    name: 'GPT-4o', 
-    inPrice: 6.13, 
-    outPrice: 24.53, 
-    tier: 'standard',
-    badge: '🖼️ Vision',
-    description: 'Gali analizuoti paveikslėlius',
-  },
-  { 
-    name: 'GPT-4o-mini', 
-    inPrice: 0.37, 
-    outPrice: 1.47, 
-    tier: 'economy',
-    description: 'Greitas multimodalinis modelis',
+    badge: '💚 Trumpiems',
+    description: 'Trumpi klausimai ir vidiniai sistemos sprendimai',
   },
 ];
 
@@ -240,18 +178,14 @@ function ModelTable({ models, title, icon: Icon }) {
           <thead>
             <tr className="border-b border-gray-700/50">
               <th className="px-6 py-3 text-left text-xs font-semibold text-gray-400 uppercase tracking-wider">Modelis</th>
-              <th className="px-6 py-3 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">Įvestis (1K tok.)</th>
-              <th className="px-6 py-3 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">Išvestis (1K tok.)</th>
-              <th className="px-6 py-3 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">~Žinutė</th>
+              <th className="px-6 py-3 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">~Viena žinutė</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-700/30">
-            {models.map((model, idx) => {
-              // Apytikslė žinutės kaina: ~300 in + ~500 out tokenų
-              const avgMessage = (model.inPrice * 0.3) + (model.outPrice * 0.5);
-              const minMsg = Math.round(avgMessage * 0.7);
-              const maxMsg = Math.round(avgMessage * 1.5);
-              
+            {models.map((model) => {
+              const minMsg = model.msgMin;
+              const maxMsg = model.msgMax;
+
               return (
                 <tr 
                   key={model.name} 
@@ -281,12 +215,6 @@ function ModelTable({ models, title, icon: Icon }) {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-right">
-                    <span className="text-gray-300 font-mono">{model.inPrice.toFixed(2)} kr</span>
-                  </td>
-                  <td className="px-6 py-4 text-right">
-                    <span className="text-gray-300 font-mono">{model.outPrice.toFixed(2)} kr</span>
-                  </td>
-                  <td className="px-6 py-4 text-right">
                     <span className={`font-semibold ${
                       model.tier === 'economy' ? 'text-green-400' : 
                       model.tier === 'recommended' ? 'text-blue-400' :
@@ -305,7 +233,7 @@ function ModelTable({ models, title, icon: Icon }) {
       <div className="px-6 py-3 bg-gray-900/50 border-t border-gray-700/50">
         <p className="text-xs text-gray-500 flex items-center gap-2">
           <Info className="w-3 h-3" />
-          Tokenas ≈ 4 simboliai lietuviškai. Vidutinė žinutė: ~300 įvesties + ~500 išvesties tokenų.
+          Kaina priklauso nuo žinutės ilgio ir darbo sudėtingumo — ilgesnis tekstas kainuoja daugiau. Modelį sistema parenka automatiškai.
         </p>
       </div>
     </div>
@@ -435,7 +363,7 @@ export default function PricingPage() {
         <script type="application/ld+json">{JSON.stringify(pageSchema)}</script>
       </Helmet>
       
-      <div className="min-h-screen bg-gray-950 text-white">
+      <div className="cvx-page min-h-screen text-white">
         <Header />
         
         <main className="pt-24 pb-20">
@@ -553,16 +481,16 @@ export default function PricingPage() {
                 className="mb-8"
               >
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                  🤖 AI Pokalbių modeliai
+                  🤖 Kiek kainuoja viena žinutė
                 </h2>
                 <p className="text-gray-400">
-                  Kaina priklauso nuo modelio ir žinutės ilgio (tokenų kiekio)
+                  Modelį parenka sistema pagal užduotį — kasdieniam darbui eina pigiausias
                 </p>
               </motion.div>
               
               <ModelTable 
                 models={AI_MODELS} 
-                title="GPT modeliai" 
+                title="Pagal darbo tipą" 
                 icon={MessageSquare} 
               />
               

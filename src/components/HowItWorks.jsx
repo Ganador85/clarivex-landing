@@ -16,7 +16,7 @@ const steps = [
   {
     icon: Zap,
     title: 'AI apdoroja akimirksniu',
-    description: 'GPT-5.4 mini ir GPT Image 2 analizuoja užklausą ir sukuria rezultatą per sekundes.',
+    description: 'Naujausi GPT-5.6 ir GPT Image 2 modeliai analizuoja užklausą ir sukuria rezultatą per sekundes.',
     example: 'Tekstas + nuotraukos + hashtags',
     color: 'from-purple-500 to-pink-500'
   },

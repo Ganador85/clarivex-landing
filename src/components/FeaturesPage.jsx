@@ -56,7 +56,7 @@ const FEATURE_CATEGORIES = [
       {
         name: 'AI Pokalbiai',
         icon: MessageSquare,
-        description: 'Pokalbiai su GPT-5.4 mini, GPT-5.4, GPT-5.5, GPT-5.1/5.2 ir kt.',
+        description: 'Pokalbiai su naujausiais GPT-5.6 šeimos modeliais',
         capabilities: [
           'Kelių AI modelių pasirinkimas',
           'Failų įkėlimas ir analizė',
@@ -425,6 +425,97 @@ const FEATURE_CATEGORIES = [
     ],
   },
   {
+    id: 'commerce',
+    title: 'Prekės ir pardavimai',
+    icon: ShoppingCart,
+    color: 'from-emerald-500 to-teal-600',
+    description: 'Katalogas, paruoštas atsakymams klientui ir paieškai',
+    features: [
+      {
+        name: 'Prekių sandėlis',
+        icon: Package,
+        description: 'Prekės importuojamos, aprašomos AI ir tampa randamos pagal prasmę',
+        capabilities: [
+          'Importas iš Shopify, WooCommerce, prekių srauto ar lentelės',
+          'Stulpelių atpažinimas ir šablonai',
+          'AI nustato prekės tipą, auditoriją ir savybes',
+          'Nuotraukų analizė: požymiai, kurių nėra aprašyme',
+          'Semantinė paieška — klientas rašo savais žodžiais',
+          'Variantai, dydžiai ir kainų apsauga',
+          'Atsinaujinimas pagal tvarkaraštį',
+        ],
+      },
+      {
+        name: 'Atsakymai su prekėmis',
+        icon: MessageCircle,
+        description: 'AI atsako klientui konkrečiomis prekėmis — su nuotrauka, kaina ir dydžiais',
+        capabilities: [
+          'Veikia socialinių tinklų žinutėse ir svetainės pokalbyje',
+          'Rodo tik tai, kas realiai yra sandėlyje',
+          'Supranta klausimus su rašybos klaidomis ir be nosinių',
+        ],
+      },
+      {
+        name: 'Produktai 360°',
+        icon: Eye,
+        description: 'Sukamas prekės vaizdas iš kadrų, įdedamas į svetainę',
+        capabilities: ['Kadrų įkėlimas', 'Kolekcijos', 'Įterpimas į puslapį'],
+      },
+      {
+        name: 'Virtualus matavimas',
+        icon: Sparkles,
+        description: 'Drabužio primatavimas ant nuotraukos',
+        capabilities: ['Viršus, apačia ir suknelės', 'Rezultatas per kelias sekundes'],
+      },
+    ],
+  },
+  {
+    id: 'business',
+    title: 'Svetainė ir verslo įrankiai',
+    icon: Globe,
+    color: 'from-sky-500 to-blue-600',
+    description: 'Nuo svetainės su savu domenu iki dokumentų ir stebėjimo',
+    features: [
+      {
+        name: 'Svetainių kūrėjas',
+        icon: Globe,
+        description: 'Svetainė sukuriama pokalbiu ir gyvena savame domene',
+        capabilities: [
+          'Puslapiai, blogas ir SEO',
+          'Užklausų forma su pranešimais',
+          'Atsiliepimai ir svečių knyga',
+          'Registracija į renginius',
+          'Pardavimai: dovanų kuponai, skaitmeninės prekės, paslaugos',
+          'Gyvas pokalbis su konsultantu',
+        ],
+      },
+      {
+        name: 'Rezervacijos',
+        icon: Calendar,
+        description: 'AI priima rezervaciją pokalbyje ir tikrina laisvus laikus',
+        capabilities: ['Paslaugos ir trukmės', 'Taisyklės ir apribojimai', 'Patvirtinimai klientui'],
+      },
+      {
+        name: 'Dokumentai',
+        icon: FileText,
+        description: 'Pasiūlymai, sąskaitos ir sutarčių analizė',
+        capabilities: ['Šablonai', 'Generavimas iš pokalbio', 'Sutarties peržiūra su AI'],
+      },
+      {
+        name: 'Svetainės auditas',
+        icon: BarChart3,
+        description: 'SEO ir greičio patikra su prioritetais',
+        capabilities: ['Meta, H1, nuorodos', 'Schema ir OpenGraph', 'Core Web Vitals'],
+      },
+      {
+        name: 'Stebėjimo agentai',
+        icon: TrendingUp,
+        description: 'Nuolat seka šaltinius ir praneša, kas nauja',
+        capabilities: ['RSS ir paieškos šaltiniai', 'Savas tvarkaraštis', 'Pranešimai apie naujienas'],
+      },
+    ],
+  },
+  {
     id: 'billing',
     title: 'Atsiskaitymai',
     icon: CreditCard,
@@ -528,6 +619,13 @@ const FEATURE_SECTION_GROUPS = [
     categoryIds: ['telegram', 'voice', 'visual', 'tools'],
   },
   {
+    slug: 'prekyba-verslas',
+    heading: 'Prekės, svetainė ir verslo įrankiai',
+    intro:
+      'Katalogas, paruoštas atsakymams ir paieškai, svetainė su savu domenu, rezervacijos, dokumentai ir stebėjimas.',
+    categoryIds: ['commerce', 'business'],
+  },
+  {
     slug: 'kainos-pagalba',
     heading: 'Kreditai, mokėjimai ir klientų aptarnavimas',
     intro: 'Lanksti kreditų sistema bei įrankiai klientų aptarnavimui su AI.',
@@ -582,7 +680,7 @@ const FeaturesPage = () => {
         <script type="application/ld+json">{JSON.stringify(pageSchema)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-gray-950 text-white antialiased">
+      <div className="cvx-page min-h-screen text-white antialiased">
         <Header />
         
         <main className="pt-20">

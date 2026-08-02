@@ -159,12 +159,12 @@ const tiers = [
     name: 'Premium',
     tagline: 'Numatytas balansas',
     highlight: true,
-    body: 'Opus 4.8 architektūrai ir dizainui, Sonnet 5 tekstams ir redagavimui. Geriausias santykis kokybė / kaina.',
+    body: 'Opus 5 architektūrai ir dizainui, Sonnet 5 tekstams ir redagavimui. Geriausias santykis kokybė / kaina.',
   },
   {
     name: 'Maksimalus',
     tagline: 'Aukščiausia kokybė',
-    body: 'Opus 4.8 visuose žingsniuose — kai reikia geriausio įmanomo rezultato.',
+    body: 'Opus 5 visuose žingsniuose — kai reikia geriausio įmanomo rezultato.',
   },
 ];
 

@@ -13,7 +13,7 @@ const faqCategories = [
     questions: [
       {
         q: 'Kas yra Clarivex?',
-        a: 'Clarivex yra dirbtinio intelekto (AI) asistentų platforma, leidžianti automatizuoti kasdienius darbus: kurti ir publikuoti turinį socialiniuose tinkluose, valdyti el. paštą, nustatyti priminimus, generuoti paveikslėlius ir daug daugiau. Platforma palaiko lietuvių kalbą ir balso komandas.'
+        a: 'Clarivex yra dirbtinio intelekto (AI) asistentų platforma lietuvių kalba. Ji kuria ir publikuoja turinį socialiniuose tinkluose, atsako klientams žinutėse, tvarko el. paštą, generuoja paveikslėlius, paruošia prekių katalogą atsakymams ir paieškai, sukuria svetainę su savu domenu bei priima rezervacijas. Veikia tekstu ir balsu.'
       },
       {
         q: 'Ar Clarivex supranta lietuviškai?',
@@ -48,7 +48,7 @@ const faqCategories = [
       },
       {
         q: 'Ką galiu padaryti su 1 000 kreditų?',
-        a: 'Su 1 000 kreditų (~1 €) gali: parašyti ~100 AI žinučių su GPT-5.4 nano arba ~50 su GPT-5.4 mini, sugeneruoti kelis–dešimt paveikslėlių (GPT Image 2 – priklauso nuo kokybės ir dydžio, dažniausiai ~15–130 kr), transkribuoti ~80 min. balso arba atlikti ~50 web paieškų. Net nedidelė suma leidžia labai daug išbandyti. Patarimas: naudojant GPT-5.4 nano modelį kreditai trunka ilgiau, o GPT-5.4 mini duoda puikų balansą kasdienėms užduotims.'
+        a: 'Su 1 000 kreditų (~1 €) gali: parašyti kelis šimtus AI žinučių kasdieniu modeliu, sugeneruoti kelis–dešimt paveikslėlių (GPT Image 2 – priklauso nuo kokybės ir dydžio, dažniausiai ~15–130 kr), transkribuoti ~80 min. balso arba atlikti ~50 web paieškų. Net nedidelė suma leidžia labai daug išbandyti. Patarimas: naudojant GPT-5.4 nano modelį kreditai trunka ilgiau, o GPT-5.4 mini duoda puikų balansą kasdienėms užduotims.'
       },
       {
         q: 'Ar kreditai baigiasi?',
@@ -79,11 +79,23 @@ const faqCategories = [
     questions: [
       {
         q: 'Kokie AI modeliai naudojami?',
-        a: 'Naudojame OpenAI modelius tekstui (GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5.2, GPT-5.1 ir kt.); GPT Image 2 paveikslėliams (kaina priklauso nuo kokybės ir dydžio); Nano Banana 2 (Gemini) – fallback; Whisper balso transkripcijai. Galite patys pasirinkti tekstinį modelį kiekviename pokalbyje!'
+        a: 'Tekstui naudojame naujausius OpenAI GPT-5.6 šeimos modelius: kasdieniam darbui — greitąjį, ilgiems dokumentams ir el. laiškams — stipresnįjį, o pokalbyje galite pasirinkti ir maksimalios kokybės variantą. Paveikslėliams — GPT Image 2 (atsarginis kelias Nano Banana 2 / Gemini), balso transkripcijai — Whisper. Svetainių kūrėjas dirba su Claude Opus 5 ir Sonnet 5.'
       },
       {
         q: 'Kurį AI modelį pasirinkti?',
-        a: 'GPT-5.4 mini (numatytasis) — idealus kasdienėms užduotims: paprasti pokalbiai, el. laiškai, receptai, patarimai, vertimai. Greitas ir stiprus. GPT-5.4 nano — dar ekonomiškesnis variantas paprastiems klausimams. GPT-5.4 / GPT-5.5 — sudėtingesniems darbams: ilgų dokumentų analizė, programavimas, maksimali kokybė. Patarimas: pradėkite nuo 5.4 mini — jei rezultatas netenkina, perjunkite į 5.4 ar 5.5.'
+        a: 'Dažniausiai rinktis nereikia — sistema pati parenka modelį pagal užduotį: kasdieniams pokalbiams, postams ir atsakymams klientams eina greitasis, ilgiems dokumentams, sutartims ir el. laiškams — stipresnysis. Jei kokiam nors darbui norite paties geriausio rezultato, pokalbyje galite įjungti maksimalios kokybės modelį; jis kainuoja daugiau, todėl kasdienybei jo nereikia.'
+      },
+      {
+        q: 'Ar Clarivex gali atsakyti klientams apie mano prekes?',
+        a: 'Taip. Prekes galima įkelti iš Shopify, WooCommerce, prekių srauto arba paprastos lentelės. Clarivex jas aprašo: nustato prekės tipą, kam ji skirta ir savybes, o iš pagrindinės nuotraukos surašo požymius, kurių nebuvo aprašyme. Po to klientas gali klausti savais žodžiais — net su rašybos klaidomis — ir gauti konkrečią prekę su nuotrauka, kaina bei dydžiais. Atsakoma tik tuo, kas realiai yra kataloge.'
+      },
+      {
+        q: 'Ar galiu turėti svetainę?',
+        a: 'Taip. Svetainių kūrėjas sukuria puslapius pokalbiu ir paleidžia juos jūsų domene. Galima įjungti blogą, užklausų formą, atsiliepimus, registraciją į renginius, pardavimus (dovanų kuponai, skaitmeninės prekės, paslaugos) ir gyvą pokalbį su konsultantu.'
+      },
+      {
+        q: 'Ar AI pasako, kad jis yra AI?',
+        a: 'Taip. Naujo pokalbio pradžioje asistentas prisistato esantis AI, o jei pokalbį perima žmogus, klientas apie tai informuojamas. Tai atitinka ES AI Act skaidrumo reikalavimus.'
       },
       {
         q: 'Ar AI prisimena mano ankstesnius pokalbius?',
@@ -269,7 +281,7 @@ const FAQ = () => {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
       
-      <div className="min-h-screen bg-gray-950 text-white">
+      <div className="cvx-page min-h-screen text-white">
         {/* Header */}
         <header className="border-b border-gray-800 bg-gray-950/80 backdrop-blur-sm sticky top-0 z-50">
           <div className="max-w-6xl mx-auto px-4 py-4">

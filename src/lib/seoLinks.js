@@ -13,6 +13,8 @@ export const SEO_INTERNAL_LINKS = [
   { path: '/features', label: 'Funkcijos' },
   { path: '/kaip-veikia', label: 'Kaip veikia' },
   { path: '/nauda', label: 'Nauda' },
+  { path: '/prekiu-katalogas', label: 'Prekių katalogas' },
+  { path: '/svetainiu-kurejas', label: 'Svetainių kūrėjas' },
   { path: '/telegram', label: 'Telegram' },
   { path: '/atsakiklis', label: 'Atsakiklis' },
   { path: '/kainos', label: 'Kainodara' },

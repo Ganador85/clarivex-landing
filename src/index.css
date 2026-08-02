@@ -1,3 +1,5 @@
+@import './fonts.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -385,5 +387,27 @@ html {
 @media (max-width: 767px) {
   .cvx-blur-panel {
     backdrop-filter: none !important;
+  }
+}
+
+/* ── Turinio pasirodymas slenkant ─────────────────────────────────
+   Veikia tik kai JS ijungtas (zyma pridedama <head> pries pirma piesima).
+   Be jos turinys matomas is karto — svarbu ir paieskos sistemoms, ir tam,
+   kad puslapis neatrodytu tuscias, kol uzsikrauna JS. */
+.cvx-js .cvx-reveal[data-shown='false'] {
+  opacity: 0;
+  transform: translateY(var(--cvx-reveal-y, 22px));
+}
+
+.cvx-js .cvx-reveal {
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--cvx-reveal-delay, 0s),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--cvx-reveal-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cvx-js .cvx-reveal[data-shown='false'] {
+    opacity: 1;
+    transform: none;
   }
 }

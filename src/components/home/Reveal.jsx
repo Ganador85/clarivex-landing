@@ -1,19 +1,22 @@
 import React from 'react';
 import { useInViewRef } from './useReveal';
 
-/** Turinys pasirodo slenkant. Vienoda kalba visoms pagrindinio puslapio sekcijoms. */
+/**
+ * Turinys pasirodo slenkant.
+ *
+ * Pradinė (paslėpta) būsena aprašyta CSS'e po `html.cvx-js`, o ne inline —
+ * kitaip iš anksto atvaizduotame HTML'e visos sekcijos ateidavo su opacity:0
+ * ir puslapis atrodydavo tuščias tol, kol užsikrauna JS.
+ */
 export default function Reveal({ children, delay = 0, y = 22, className = '' }) {
   const [ref, inView] = useInViewRef();
 
   return (
     <div
       ref={ref}
-      className={className}
-      style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? 'none' : `translateY(${y}px)`,
-        transition: `opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 700ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
-      }}
+      className={`cvx-reveal ${className}`.trim()}
+      data-shown={inView ? 'true' : 'false'}
+      style={{ '--cvx-reveal-delay': `${delay}s`, '--cvx-reveal-y': `${y}px` }}
     >
       {children}
     </div>
